@@ -1,1 +1,2 @@
 # RealTrace_figure_notebooks
+All notebooks used to create figures in the publication "RealTrace: Uncovering biological dynamics hidden under measurement noise in time-lapse microscopy data" https://doi.org/10.1101/2025.09.12.675772
