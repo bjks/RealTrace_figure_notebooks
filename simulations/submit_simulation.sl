@@ -12,4 +12,4 @@
 #SBATCH --mail-user=bjoern.kscheschinski@unibas.ch
 
 module load matplotlib
-python3 cells_simulation.py --o /scicore/home/nimwegen/ksches0000/simulation_data/inference_output_1/ --n 20 --l 50 --d 10 --i /scicore/home/nimwegen/rocasu25/Documents/Projects/biozentrum/constitexpr/20$
+python3 simulation_vary_fluctuation_scale.py 
