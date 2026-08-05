@@ -6,9 +6,6 @@
 # In[1]:
 
 
-get_ipython().run_line_magic('load_ext', 'autoreload')
-get_ipython().run_line_magic('autoreload', '2')
-
 import sys
 
 import builtins
@@ -20,7 +17,6 @@ from RealTrace_paper_analysis.plotting_src.header_settings import *
 
 from RealTrace_paper_analysis.plotting_src.plot_correlations_from_npz import *
 
-get_ipython().run_line_magic('config', "InlineBackend.figure_format ='retina'")
 
 
 # In[2]:
@@ -345,67 +341,94 @@ plot_xy_correlation_list(get_filtered_values(corr_dict, condition),
                         title=condition)
 
 
-# In[ ]:
+for condition in conditions_to_plot[:3]:
+
+    plot_xy_correlation_list(get_filtered_values(corr_dict, condition), 
+                            "l(t+dt)", "l(t)", 
+                            plot_file=plot_dir_main.format(condition, "corr", "l", "l").replace("corr_l_l", "corr_l_l_long4"), 
+                            label=get_filtered_keys(corr_dict, condition, keep="both"), 
+                            gamma=get_filtered_values(gamma_lambdas, condition), 
+                            mean_lambda = get_filtered_values(mean_lambdas, condition),
+                            ylabel=r"$C[\lambda(t^\prime),\lambda(t)]$",
+                            scale_t=True, 
+                            ylim=[-0.2,1], 
+                            xlim=[0, 4], 
+                            err_style="fill", 
+                            log=False, 
+                            min_joint_number=1, 
+                            legend=False, 
+                            color_by="condition",
+                            title=condition)
 
 
-condition=conditions_to_plot[2]
-
-plot_xy_correlation_list(get_filtered_values(corr_dict, condition), 
-                        "l(t+dt)", "l(t)", 
-                        # plot_file=plot_dir_main.format(condition, "corr", "l", "l"), 
-                        label=get_filtered_keys(corr_dict, condition, keep="both"), 
-                        gamma=get_filtered_values(gamma_lambdas, condition), 
-                        mean_lambda = get_filtered_values(mean_lambdas, condition),
-                        ylabel=r"$C[\lambda(t^\prime),\lambda(t)]$",
-                        scale_t=True, 
-                        ylim=[-0.1,1], 
-                        xlim=[0, 5], 
-                        err_style="fill", 
-                        log=False, 
-                        min_joint_number=1, 
-                        legend=False, 
-                        color_by="condition",
-                        title=condition)
-
-
-# In[44]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[45]:
-
-
-
-
-
-# In[ ]:
+    plot_xy_correlation_list(get_filtered_values(corr_dict, condition), 
+                            "l(t+dt)", "l(t)", 
+                            plot_file=plot_dir_main.format(condition, "corr", "l", "l").replace("corr_l_l", "corr_l_l_long6"), 
+                            label=get_filtered_keys(corr_dict, condition, keep="both"), 
+                            gamma=get_filtered_values(gamma_lambdas, condition), 
+                            mean_lambda = get_filtered_values(mean_lambdas, condition),
+                            ylabel=r"$C[\lambda(t^\prime),\lambda(t)]$",
+                            scale_t=True, 
+                            ylim=[-0.2,1], 
+                            xlim=[0, 6], 
+                            err_style="fill", 
+                            log=False, 
+                            min_joint_number=1, 
+                            legend=False, 
+                            color_by="condition",
+                            title=condition)
 
 
 
+    plot_xy_correlation_list(get_filtered_values(corr_dict, condition), 
+                            "l(t+dt)", "l(t)", 
+                            plot_file=plot_dir_main.format(condition, "corr", "l", "l").replace("corr_l_l", "corr_l_l_long7"), 
+                            label=get_filtered_keys(corr_dict, condition, keep="both"), 
+                            gamma=get_filtered_values(gamma_lambdas, condition), 
+                            mean_lambda = get_filtered_values(mean_lambdas, condition),
+                            ylabel=r"$C[\lambda(t^\prime),\lambda(t)]$",
+                            scale_t=True, 
+                            ylim=[-0.2,1], 
+                            xlim=[0, 7], 
+                            err_style="fill", 
+                            log=False, 
+                            min_joint_number=1, 
+                            legend=False, 
+                            color_by="condition",
+                            title=condition)
+
+    plot_xy_correlation_list(get_filtered_values(corr_dict, condition), 
+                            "l(t+dt)", "l(t)", 
+                            plot_file=plot_dir_main.format(condition, "corr", "l", "l").replace("corr_l_l", "corr_l_l_long8"), 
+                            label=get_filtered_keys(corr_dict, condition, keep="both"), 
+                            gamma=get_filtered_values(gamma_lambdas, condition), 
+                            mean_lambda = get_filtered_values(mean_lambdas, condition),
+                            ylabel=r"$C[\lambda(t^\prime),\lambda(t)]$",
+                            scale_t=True, 
+                            ylim=[-0.2,1], 
+                            xlim=[0, 8], 
+                            err_style="fill", 
+                            log=False, 
+                            min_joint_number=1, 
+                            legend=False, 
+                            color_by="condition",
+                            title=condition)
 
 
-# In[36]:
-
-
-
-
-
-# In[38]:
-
-
-
-
-
-# In[ ]:
-
-
-
+    plot_xy_correlation_list(get_filtered_values(corr_dict, condition), 
+                            "l(t+dt)", "l(t)", 
+                            plot_file=plot_dir_main.format(condition, "corr", "l", "l").replace("corr_l_l", "corr_l_l_long9"), 
+                            label=get_filtered_keys(corr_dict, condition, keep="both"), 
+                            gamma=get_filtered_values(gamma_lambdas, condition), 
+                            mean_lambda = get_filtered_values(mean_lambdas, condition),
+                            ylabel=r"$C[\lambda(t^\prime),\lambda(t)]$",
+                            scale_t=True, 
+                            ylim=[-0.2,1], 
+                            xlim=[0, 9], 
+                            err_style="fill", 
+                            log=False, 
+                            min_joint_number=1, 
+                            legend=False, 
+                            color_by="condition",
+                            title=condition)
 

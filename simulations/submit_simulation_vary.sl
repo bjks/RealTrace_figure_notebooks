@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --job-name=auto_corr
+#SBATCH --job-name=varytau
 #SBATCH --cpus-per-task=25
 #SBATCH --mem-per-cpu=1G
 
@@ -9,7 +9,6 @@
 
 #SBATCH --output=std.out
 #SBATCH --mail-type=END,FAIL,TIME_LIMIT
-#SBATCH --mail-user=bjoern.kscheschinski@unibas.ch
 
 module load matplotlib
 python3 simulation_vary_fluctuation_scale.py 
