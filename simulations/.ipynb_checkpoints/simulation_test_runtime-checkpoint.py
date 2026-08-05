@@ -139,7 +139,7 @@ base_parameter_set  ={ "mean_lambda": 0.0114137,
 
 def main_sim(sim_idx):
     np.random.seed(0)
-    out_dir = mk_missing_dir('../../data_sim_manuscript/test_runtime')
+    out_dir = mk_missing_dir('../../data_realtrace_paper/test_runtime')
 
     # np.array([1.5**n for n in np.arange(-5,5)])
 

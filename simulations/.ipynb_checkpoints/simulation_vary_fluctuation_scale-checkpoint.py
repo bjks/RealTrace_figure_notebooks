@@ -140,7 +140,7 @@ base_parameter_set  ={ "mean_lambda": 0.0114137,
 
 def main_sim(sim_idx):
     np.random.seed(sim_idx)
-    out_dir = '../../data_sim_manuscript/vary_fluctuations_scale_simulations'
+    out_dir = '../../data_realtrace_paper/vary_fluctuations_scale_simulations'
 
     factor = np.array([1.3**n for n in np.arange(0,10)])[sim_idx]
     
