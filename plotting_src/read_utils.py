@@ -2,6 +2,13 @@
 from RealTrace_paper_analysis.plotting_src.header_settings import *
 import pandas as pd
 
+
+# def write_numerical_data(x, y, direct, file, isline=True):
+#     with open(outfile,'w') as fin:
+#         fin.write("x,{:.4E},{:.4E}".format)
+        
+
+
 def mk_missing_dir(directory, depth=0):
     if depth>len(directory.split('/'))-1:
         depth = len(directory.split('/'))-1

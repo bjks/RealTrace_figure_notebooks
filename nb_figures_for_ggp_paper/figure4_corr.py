@@ -30,6 +30,82 @@ from RealTrace_paper_analysis.plotting_src.plot_correlations_from_npz import *
 # In[3]:
 
 
+def corr_to_csv(correlations, output_file):
+    
+    ["x(t+dt)", "g(t+dt)", "l(t+dt)", "q(t+dt)", "x(t)", "g(t)", "l(t)", "q(t)"]
+    
+    
+    columns = ["dt", 
+               "cov_l(t+dt)l(t)", "cov_l(t+dt)l(t)_err", 
+               "cov_l(t+dt)q(t)", "cov_l(t+dt)q(t)_err",
+               "cov_q(t+dt)l(t)", "cov_q(t+dt)l(t)_err", 
+               "cov_q(t+dt)q(t)", "cov_q(t+dt)q(t)_err", 
+               "cov_c(t+dt)c(t)", "cov_c(t+dt)c(t)_err",
+               ###
+               "corr_l(t+dt)l(t)", "corr_l(t+dt)l(t)_err",
+               "corr_l(t+dt)q(t)", "corr_l(t+dt)q(t)_err",
+               "corr_q(t+dt)l(t)", "corr_q(t+dt)l(t)_err", 
+               "corr_q(t+dt)q(t)", "corr_q(t+dt)q(t)_err", 
+               "corr_c(t+dt)c(t)", "corr_c(t+dt)c(t)_err", 
+               ###
+               "corr_naive_l(t+dt)l(t)",
+               "corr_naive_l(t+dt)q(t)",
+               "corr_naive_q(t+dt)l(t)", 
+               "corr_naive_q(t+dt)q(t)",
+               "corr_naive_c(t+dt)c(t)"]
+    
+    with open(output_file, 'w') as f:
+        for i,c in enumerate(columns):
+            f.write(c)
+            if i<len(columns)-1:
+                f.write(",")
+        f.write("\n")
+        
+        for corr in correlations:
+            f.write(str(corr.dt)+",")
+            
+            f.write(str(corr.cov_mle[2, 6])+",")
+            f.write(str(corr.cov_mle_err[2, 6])+",")
+            
+            f.write(str(corr.cov_mle[2, 7])+",")
+            f.write(str(corr.cov_mle_err[2, 7])+",")
+            
+            f.write(str(corr.cov_mle[3, 6])+",")
+            f.write(str(corr.cov_mle_err[3, 6])+",")
+            
+            f.write(str(corr.cov_mle[3, 7])+",")
+            f.write(str(corr.cov_mle_err[3, 7])+",")
+            
+            f.write(str(corr.cov_concentration_mle[0, 1])+",")
+            f.write(str(corr.cov_concentration_mle_err[0, 1])+",")
+            
+            #######
+            f.write(str(corr.corr_mle[2, 6])+",")
+            f.write(str(corr.corr_mle_err[2, 6])+",")
+            
+            f.write(str(corr.corr_mle[2, 7])+",")
+            f.write(str(corr.corr_mle_err[2, 7])+",")
+            
+            f.write(str(corr.corr_mle[3, 6])+",")
+            f.write(str(corr.corr_mle_err[3, 6])+",")
+            
+            f.write(str(corr.corr_mle[3, 7])+",")
+            f.write(str(corr.corr_mle_err[3, 7])+",")
+            
+            f.write(str(corr.corr_concentration_mle[0, 1])+",")
+            f.write(str(corr.corr_concentration_mle_err[0, 1])+",")
+            
+            #######
+            f.write(str(corr.corr_naive[2, 6])+",")
+            f.write(str(corr.corr_naive[2, 7])+",")
+            f.write(str(corr.corr_naive[3, 6])+",")
+            f.write(str(corr.corr_naive[3, 7])+",")
+            f.write(str(corr.corr_concentration_naive[0, 1]))
+            
+            f.write("\n")
+    
+
+
 input_dir = "../../data_realtrace_paper/ecoli_data/"
 # input_dir = "../../RealTrace_test_data/test_new_npz/"
 
@@ -71,6 +147,8 @@ for cf in corralations_filenames:
     # print(list(data.keys()))
 
     corr_dict_all[data_set_name] = Correlation_function(data['correlations'])
+
+    corr_to_csv(data['correlations'], cf.replace(".npz", ".csv"))
     
     # Collect relevant parameters 
     gamma_lambdas[data_set_name] = data['gamma_lambda']
